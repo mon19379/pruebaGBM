@@ -3,8 +3,11 @@ archivo1.write('')
 
 while True:
     v3 = []
+    v4 = []
     pos = []
     pos1 = []
+    pos2=[]
+    pos3=[]
     puntaje = []
     lista = []
     val = 0
@@ -28,39 +31,41 @@ while True:
         
         for i in range(G):    
             pos.append(input("Ingrese el resultado de la carrera separado por espacios:"))
-        print(pos)
+            pos1 = pos[i].split()
+            for j in pos1:
+                pos2.append(int(j))
+            pos3.append(pos2)
             
         S = int(input("Ingrese numero de sistemas de puntaje:"))
 
         for j in range(S): 
+            v3=[]
             v = input("Ingrese los puntos del sistema de puntaje:")
+            v2 = v.split()
+            for i in v2:
+                v3.append(int(i))
+            v4.append(v3)
             puntaje.append(str(P)+ " " + v)
             
-    
+        
         archivo = open("Output.txt","a")
         archivo.write("INPUTS\n")
         archivo.write(entrada1 + "\n")
     
         print(entrada1)
+        
         for k in range (G):
             print(pos[k])
             archivo.write(pos[k] + "\n")
         print(S)
         archivo.write(str(S)+ "\n")
+
         for x in range(S):
             print(puntaje[x])
             archivo.write(puntaje[x]+ "\n") 
-            ganador.append(max(v)) 
-            print("ganador",ganador.index(max(v))+1)  
-            empates = []
-            for gan in range(len(ganador)):
-                if ganador[gan] == max(v):
-                    empates.append(gan+1) 
-                
-        print(empates)         
-        
-       
-                
+            archivo.write("Piloto ganador:" + str(pos3[0][v4[x].index(max(v4[x]))])+"\n")
+            print("Piloto ganador:",pos3[0][v4[x].index(max(v4[x]))] )
+            
 
 
 
